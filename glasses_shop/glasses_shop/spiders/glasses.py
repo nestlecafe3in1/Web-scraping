@@ -18,4 +18,4 @@ class GlassesSpider(scrapy.Spider):
         next_page = response.xpath("//a[@rel='next']/@href").get()
 
         if next_page:
-            scrapy.Request(url=next_page, callback=self.parse)
+            yield scrapy.Request(url=next_page, callback=self.parse)
