@@ -11,8 +11,8 @@ class GlassesSpider(scrapy.Spider):
             yield {
                 'name' : product.xpath("normalize-space(.//div[@class='p-title']/a/text())").get(),
                 'product_price' : product.xpath(".//div[@class='p-price']//span[1]/text()").get(),
-                'product_url' : product.xpath(".//div[@id='product-lists']/div//div[@class='p-title']/a[1]/@href").get(),
-                'product_image' : product.xpath(".//div[@id='product-lists']/div//div[@class='product-img-outer']/a[1]/@href").get()
+                'product_url' : product.xpath(".//div[@class='p-title']/a[1]/@href").get(),
+                'product_image' : product.xpath(".//img[@class='lazy d-block w-100 product-img-default']/@src").get()
             }
 
         next_page = response.xpath("//a[@rel='next']/@href").get()
