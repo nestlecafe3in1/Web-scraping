@@ -1,5 +1,5 @@
 import scrapy
-import logging
+import logging 
 
 
 class CountriesSpider(scrapy.Spider):
